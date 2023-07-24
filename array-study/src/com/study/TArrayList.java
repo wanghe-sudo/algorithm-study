@@ -1,23 +1,23 @@
 package com.study;
 
-public class IntArrayList {
+public class TArrayList<T> {
     /**
      * 当前容量
      */
     private int size;
-    private int[] elements;
+    private T[] elements;
 
-    private static final int DEFAULT_CAPACITY = 6;
+    private static final int DEFAULT_CAPACITY = 2;
     private static final int ELEMENT_NOT_FIND = -1;
 
-    public IntArrayList(int capacity) {
+    public TArrayList(int capacity) {
         if (capacity < DEFAULT_CAPACITY) {
             capacity = DEFAULT_CAPACITY;
         }
-        this.elements = new int[capacity];
+        this.elements = (T[]) new Object[capacity];
     }
 
-    public IntArrayList() {
+    public TArrayList() {
         // 调构造函数
         this(DEFAULT_CAPACITY);
     }
@@ -42,13 +42,13 @@ public class IntArrayList {
      *
      * @param element
      */
-    public void add(int element) {
+    public void add(T element) {
         // size是集，就往对应 index放
         add(size, element);
     }
 
 
-    public void add(int index, int element) {
+    public void add(int index, T element) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
         }
@@ -70,7 +70,7 @@ public class IntArrayList {
         if (oldCapacity < capacity) {
             // 扩容1.5倍
             int newCapacity = oldCapacity + (oldCapacity >> 1);
-            int[] newElements = new int[newCapacity];
+            T[] newElements = (T[]) new Object[newCapacity];
             for (int i = 0; i < size; i++) {
                 newElements[i] = elements[i];
             }
@@ -80,7 +80,7 @@ public class IntArrayList {
         }
     }
 
-    public int get(int index) {
+    public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
         }
@@ -94,21 +94,21 @@ public class IntArrayList {
      * @param element
      * @return
      */
-    public int set(int index, int element) {
+    public T set(int index, T element) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
         }
-        int old = elements[index];
+        T old = elements[index];
         elements[index] = element;
         return old;
     }
 
-    public int remove(int index) {
+    public T remove(int index) {
 
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("下标越界");
         }
-        int old = get(index);
+        T old = get(index);
         // 将当前的之后
         for (int i = index; i < size - 1; i++) {
             elements[i] = elements[i + 1];
@@ -117,7 +117,7 @@ public class IntArrayList {
         return old;
     }
 
-    public int indexOf(int element) {
+    public int indexOf(T element) {
         for (int i = 0; i < size; i++) {
             if (element == elements[i]) {
                 return i;
@@ -126,7 +126,7 @@ public class IntArrayList {
         return ELEMENT_NOT_FIND;
     }
 
-    public boolean contains(int element) {
+    public boolean contains(T element) {
         return ELEMENT_NOT_FIND != indexOf(element);
     }
 

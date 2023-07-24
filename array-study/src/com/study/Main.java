@@ -2,8 +2,7 @@ package com.study;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {11, 22, 33};
-        IntArrayList list = new IntArrayList();
+/*        IntArrayList list = new IntArrayList();
         list.add(99);
         list.add(88);
         list.add(77);
@@ -17,7 +16,15 @@ public class Main {
 
         list.set(1,200);
         list.set(2,200);
-        System.out.println(list);
+        System.out.println(list);*/
+
+        TArrayList<String> tal = new TArrayList<>();
+        tal.add("1");
+        tal.add("2");
+        tal.add("3");
+        System.out.println(tal);
+
+
 
     }
 }
