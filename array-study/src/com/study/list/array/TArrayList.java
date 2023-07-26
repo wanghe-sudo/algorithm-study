@@ -1,14 +1,13 @@
-package com.study;
+package com.study.list.array;
 
-public class TArrayList<T> {
+import com.study.list.AbstractList;
+
+public class TArrayList<T> extends AbstractList<T> {
     /**
      * 当前容量
      */
     private int size;
     private T[] elements;
-
-    private static final int DEFAULT_CAPACITY = 2;
-    private static final int ELEMENT_NOT_FIND = -1;
 
     public TArrayList(int capacity) {
         if (capacity < DEFAULT_CAPACITY) {
@@ -26,7 +25,7 @@ public class TArrayList<T> {
         return size;
     }
 
-    public boolean idEmpty() {
+    public boolean isEmpty() {
         return 0 == size;
     }
 

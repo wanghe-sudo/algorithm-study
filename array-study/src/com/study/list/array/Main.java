@@ -1,4 +1,4 @@
-package com.study;
+package com.study.list.array;
 
 public class Main {
     public static void main(String[] args) {
