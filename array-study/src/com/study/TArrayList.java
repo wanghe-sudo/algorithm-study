@@ -34,6 +34,9 @@ public class TArrayList<T> {
      * 清空所有元素
      */
     public void clear() {
+        for (int i = 0; i < size; i++) {
+            elements[i] = null;
+        }
         size = 0;
     }
 
@@ -113,11 +116,21 @@ public class TArrayList<T> {
         for (int i = index; i < size - 1; i++) {
             elements[i] = elements[i + 1];
         }
-        size--;
+        // 将size-1的位置置为null
+        elements[--size] = null;
         return old;
     }
 
     public int indexOf(T element) {
+        if (null == element) {
+            for (int i = 0; i < size; i++) {
+                if (null == elements[i]) {
+                    return i;
+                }
+            }
+            return ELEMENT_NOT_FIND;
+        }
+
         for (int i = 0; i < size; i++) {
             if (element == elements[i]) {
                 return i;
