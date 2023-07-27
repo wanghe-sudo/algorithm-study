@@ -2,7 +2,13 @@ package com.study.list;
 
 public abstract class AbstractList<E> implements List<E> {
 
-    protected Integer size;
+    protected Integer size = 0;
+
+    public void rangeCheck(Integer index) {
+        if (index < 0 || index > this.size) {
+            throw new IndexOutOfBoundsException(index + "下标越界");
+        }
+    }
 
     public int size() {
         return size;
