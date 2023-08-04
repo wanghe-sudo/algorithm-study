@@ -13,3 +13,21 @@
 ## 数组：顺序存储的线性表，所有元素的地址是连续的
 数组的致命缺点，不法动态修改容量，一般都是自己写一个动态数组
 
+
+### 栈
+栈的物理结构，可以是连续的存储空间，只不过是先进的后出
+因此可以使用arraylist来实现
+
+使用组合的方式
+```java
+class Stack{
+    private ArrayList arrayList; 
+    public void add(){
+        
+    }
+    public void pop(){
+        
+    }
+}
+```
+

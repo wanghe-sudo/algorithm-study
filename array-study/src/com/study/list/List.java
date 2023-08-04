@@ -1,6 +1,7 @@
 package com.study.list;
 
 public interface List<T> {
+
     static final int DEFAULT_CAPACITY = 2;
     static final int ELEMENT_NOT_FIND = -1;
 
